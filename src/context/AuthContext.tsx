@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import { createContext, useContext, useState } from 'react';
 import { supabase } from '../lib/supabase';
 import type { User } from '@supabase/supabase-js';
 
@@ -21,7 +21,7 @@ const AuthContext = createContext<AuthContextType>({
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
   const [role, setRole] = useState<string | null>(null);
-  const [loading, setLoading] = useState(false); // Set to false for instant demo
+  const [loading] = useState(false); // Set to false for instant demo
 
   // --- DEMO OVERRIDE FUNCTIONS ---
   // These allow you to preview all portals without setting up Supabase accounts yet
